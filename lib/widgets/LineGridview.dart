@@ -11,14 +11,14 @@ class LineGridView extends StatelessWidget{
       mainAxisSpacing: 1.0,
       crossAxisSpacing: 1.0,
       children: <Widget>[
-        LineGridViewCard("Red", Color(0xFFC60C30)),
-        LineGridViewCard("Blue",  Color(0xFF00A1DE)),
-        LineGridViewCard("Brown", Color(0xFF62361B)),
-        LineGridViewCard("Green", Color(0xFF009B3A)),
-        LineGridViewCard("Orange", Color(0xFFF9461C)),
-        LineGridViewCard("Pink", Color(0xFFE27EA6)),
-        LineGridViewCard("Purple", Color(0xFF522398)),
-        LineGridViewCard("Yellow", Color(0xFFF9E300)),
+        LineGridViewCard("Red", Color(0xFFC60C30), Color(0xFFFFFFFF)),
+        LineGridViewCard("Blue",  Color(0xFF00A1DE), Color(0xFFFFFFFF)),
+        LineGridViewCard("Brown", Color(0xFF62361B), Color(0xFFFFFFFF)),
+        LineGridViewCard("Green", Color(0xFF009B3A), Color(0xFFFFFFFF)),
+        LineGridViewCard("Orange", Color(0xFFF9461C), Color(0xFFFFFFFF)),
+        LineGridViewCard("Pink", Color(0xFFE27EA6), Color(0xFFFFFFFF)),
+        LineGridViewCard("Purple", Color(0xFF522398),Color(0xFFFFFFFF)),
+        LineGridViewCard("Yellow", Color(0xFFF9E300), Colors.black),
       ],
   );
  }
@@ -27,7 +27,8 @@ class LineGridView extends StatelessWidget{
 class LineGridViewCard extends StatelessWidget {
   final String name;
   final Color color;
-  LineGridViewCard(this.name,this.color);
+  final Color textColor;
+  LineGridViewCard(this.name,this.color, this.textColor);
    
    @override
    Widget build(BuildContext context){
@@ -45,7 +46,7 @@ class LineGridViewCard extends StatelessWidget {
                   child: new Icon(
                     Icons.train,
                     size:50.0,
-                    color: new Color(0xFFFFFFFF)
+                    color: textColor
                   )
                 )
              ),
@@ -57,7 +58,7 @@ class LineGridViewCard extends StatelessWidget {
                   style:TextStyle(
                     fontSize: 20.0,
                       fontFamily: 'Roboto',
-                      color: new Color(0xFFFFFFFF),
+                      color: textColor
                   ),
                 ),
               ),
