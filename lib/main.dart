@@ -11,7 +11,9 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: appTitle,
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+       primaryColor: Colors.blue[900],
+       accentColor: Colors.red[500],
       ),
       home: new HomeScreen(appTitle),
     );
