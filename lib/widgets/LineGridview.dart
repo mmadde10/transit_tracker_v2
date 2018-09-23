@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trasit_tracker/screens/widgets/StationSelectWidget.dart';
 
 class LineGridView extends StatelessWidget{
   @override
@@ -32,7 +33,14 @@ class LineGridViewCard extends StatelessWidget {
    
    @override
    Widget build(BuildContext context){
-    return new Card(
+    return new InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => StationSelectWidget(name,color)),
+        );
+      },
+      child: Card(
       color: color,
         elevation: 1.5,
         child: new Column(
@@ -65,6 +73,7 @@ class LineGridViewCard extends StatelessWidget {
             ),
           ],
         )
-      );
+      )
+    );
    }
 }

@@ -4,9 +4,6 @@ import 'package:trasit_tracker/screens/widgets/BusWidget.dart';
 import 'package:trasit_tracker/screens/widgets/TrainsWidget.dart';
 import 'package:trasit_tracker/screens/widgets/HomeWidget.dart';
 
-
-
-
 class HomeScreen extends StatefulWidget{
   final String title;
   HomeScreen(this.title);
