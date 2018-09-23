@@ -68,6 +68,7 @@ class BlueLineListItem extends StatelessWidget{
       return Icon(Icons.accessible);
     }
   }
+  //TODO Make method to render other icons such as airport
   Widget renderTransfers(transferColors){
      List<Widget> list = new List<Widget>();
      for(var i = 0; i < transferColors.length; i++){
