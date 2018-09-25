@@ -7,3 +7,6 @@
 build/
 
 .flutter-plugins
+
+secrets.json
+config.dart

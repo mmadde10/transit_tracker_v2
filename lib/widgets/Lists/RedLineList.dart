@@ -1,63 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:trasit_tracker/util/color.dart';
+import 'package:trasit_tracker/services/stations.cta.dart';
 
 class RedLineListView extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Container(
-     child:ListView(
-          children: <Widget>[
-            RedLineListItem("Howard",true,["Yellow","Purple"]),
-            RedLineListItem("Jarvis",true,[]),
-            RedLineListItem("Morse",false,[]),
-            RedLineListItem("Loyola",true,[]),
-            RedLineListItem("Granville",false,[]),
-            RedLineListItem("Thorndale",false,[]),
-            RedLineListItem("Bryn Mawr",true,[]),
-            RedLineListItem("Argyle",false,[]),
-            RedLineListItem("Lawrence",false,[]),
-            RedLineListItem("Wilson",true,["Purple"]),
-            RedLineListItem("Sheridan",false,[]),
-            RedLineListItem("Addison",true,[]),
-            RedLineListItem("Belmont",true,["Brown","Purple"]),
-            RedLineListItem("Fullerton",true,["Brown","Purple"]),
-            RedLineListItem("North/Clybourn",false,[]),
-            RedLineListItem("Clark/Division",true,[]),
-            RedLineListItem("Chicago",true,[]),
-            RedLineListItem("Grand",true,[]),
-            RedLineListItem("Lake",true,["Brown", "Green", "Orange", "Pink", "Purple","Blue"]),
-            RedLineListItem("Monroe",true,[]),
-            RedLineListItem("Jackson",true,["Brown", "Orange", "Pink", "Purple","Blue"]),
-            RedLineListItem("Harrison",true,[]),
-            RedLineListItem("Roosevelt",true,["Orange", "Green"]),
-            RedLineListItem("Cermak-Chinatown",true,[]),  
-            RedLineListItem("Sox-35th",true,[]), 
-            RedLineListItem("47th",true,[]),
-            RedLineListItem("Garfield",true,[]),
-            RedLineListItem("63rd",true,[]),
-            RedLineListItem("69th",true,[]), 
-            RedLineListItem("87th",true,[]),
-            RedLineListItem("95th/Dan Ryan",true,[])
-          ],
-        ),
+          child: new FutureBuilder<List<Station>>(
+            future: fetchColorStations("red"),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return new ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      return new Container(
+                        child: RedLineListItem(
+                              snapshot.data[index].stationName.toString(),
+                              snapshot.data[index].isaccessible,
+                              snapshot.data[index].transfers,
+                              snapshot.data[index].mapID,
+                            ),
+                      );
+                    }
+                  );
+              } 
+              else if (snapshot.hasError) {
+                return new Text("${snapshot.error}");
+              }
+          // By default, show a loading spinner
+          return new Center(
+            child: CircularProgressIndicator()
+          );
+        },
+      ),
     );
   }
 }
 
 class RedLineListItem extends StatelessWidget{
-  final String stationName;
-  final bool isAccessible;
-  final List transferColors;
+  final dynamic stationName;
+  final dynamic isAccessible;
+  final dynamic transferColors;
+  final dynamic id;
 
-  RedLineListItem(this.stationName,this.isAccessible,this.transferColors);
+
+  RedLineListItem(this.stationName,this.isAccessible,this.transferColors,this.id);
 
   @override
   Widget build(BuildContext context) {
     return new ListTile(
       leading: Icon(Icons.train),
-      trailing: renderAccesable(isAccessible),
+      //trailing: renderAccesable(isAccessible),
       title: new Text(stationName),
-      subtitle: renderTransfers(transferColors)
+      //subtitle: renderTransfers(transferColors)
     );
   }
   renderAccesable(isAccessible){
