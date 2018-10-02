@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trasit_tracker/widgets/Lists/RedLineList.dart';
-import 'package:trasit_tracker/widgets/Lists/BlueLineList.dart';
+import 'package:trasit_tracker/widgets/Lists/LineList.dart';
 
 class StationSelectWidget extends StatelessWidget{
  final String lineColorName;
@@ -22,42 +21,42 @@ class StationSelectWidget extends StatelessWidget{
   Widget checkLineColor(lineColorName){
     switch(lineColorName) { 
       case "Red": { 
-          return new RedLineListView();
+          return new LineListView("red");
       } 
       break; 
       
       case "Blue": { 
-          return new BlueLineListView();
+          return new LineListView("blue");
       } 
       break; 
       case "Brown": { 
-          return new RedLineListView();
+          return new LineListView("brn");
       } 
       break; 
       case "Green": {  
-          return new RedLineListView();
+          return new LineListView("g");
       } 
       break; 
 
       case "Orange": { 
-          return new RedLineListView();
+          return new LineListView("o");
       } 
       break; 
       case "Pink": { 
-          return new RedLineListView();
+          return new LineListView("pnk");
       } 
       break; 
       case "Purple": { 
-          return new RedLineListView();
+          return new LineListView("pexp");
       } 
       break; 
       case "Yellow": { 
-          return new RedLineListView();
+          return new LineListView("y");
       } 
       break; 
           
       default: { 
-          return new RedLineListView();  
+          return new LineListView("blue");  
       }
       break; 
     } 

@@ -16,7 +16,6 @@ class Station {
 Future <List<Station>> fetchColorStations(color) async {
   var url = "https://data.cityofchicago.org/resource/8mj8-j3c4.json?" + "\u0024\u0024app_token" + "="+ city_of_chicago_key + "&" + color +"=true";
   final response = await http.get(url);
-  print(url);
   List responseJson = json.decode(response.body.toString());
   List<Station> stationList = createStationList(responseJson);
   return stationList;
@@ -37,7 +36,6 @@ List<Station> createStationList(List data){
     transfers["purpleExpress"] = data[i]["pexp"];
     transfers["red"] = data[i]["red"];
     transfers["orange"] = data[i]["o"];
-    print(title);
     Station station = new Station(stationName: title, mapID: id, isaccessible: ada, transfers: transfers);
     list.add(station);
   }
