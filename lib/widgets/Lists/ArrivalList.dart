@@ -11,25 +11,15 @@ class ArrivalList extends StatelessWidget{
     return new Container(
       child: new FutureBuilder<Arrival>(
        future: fetchArrival(mapID),
-            builder: (context,snapshot){
-              if(snapshot.hasData){
-                ArrivalGridView(snapshot);
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                  return ArrivalGridView(snapshot);
+              } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
               }
-              else if (snapshot.hasError){
-                print(snapshot.error);
-                return new Center(
-                  child: new Card(
-                    child: new Center(
-                      child: new Text("ERROR"),
-                    ),
-                  ),
-                );
-              }
-              return new Center(
-                child: new CircularProgressIndicator(strokeWidth: 2.0),
-              );
-            }
+              return CircularProgressIndicator();
+            },
         ),
-      );
+    );
   }
 }

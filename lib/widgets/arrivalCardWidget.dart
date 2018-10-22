@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trasit_tracker/util/color.dart';
+import 'package:trasit_tracker/util/time.dart';
 
 class ArrivalCard extends StatelessWidget{
   final dynamic data;
@@ -17,12 +19,11 @@ class ArrivalCard extends StatelessWidget{
               padding: new EdgeInsets.fromLTRB(00.0,25.0,8.0,8.0),
               child: new Center(
                 child: new Text(
-                    //calculateArrivalTime(data),
-                    "1", //Placement text for minutes
+                    calculateArrivalTime(data),
                     style: new TextStyle(
-                      fontSize: 50.0,
+                      fontSize: 40.0,
                       fontFamily: 'Roboto',
-                      color: new Color(0xFFFFFFFF),
+                      color: Colors.white,
                     )
                 ),
               )
@@ -30,33 +31,31 @@ class ArrivalCard extends StatelessWidget{
           new Padding(padding: new EdgeInsets.fromLTRB(0.0,0.0,0.0,8.0),
               child: new Center(
                   child: new Text(
-                      //displayTimeUnits(data), 
-                      "placehodelr",
+                      displayTimeUnits(data), 
                       style: new TextStyle(
-                        fontSize: 15.0,
+                        fontSize: 25.0,
                         fontFamily: 'Roboto',
-                        color: new Color(0xFFFFFFFF),
+                        color: Colors.white,
                       )
                   )
               ),
           ),
           new Padding(
-              padding: new EdgeInsets.fromLTRB(0.0,45.0,0.0,8.0),
+              padding: new EdgeInsets.fromLTRB(0.0,70.0,0.0,8.0),
             child: new Center(
               child: new Text(
-                    //data.destinationName,
-                    "test",
+                    data['destNm'].toString(),
                     style: new TextStyle(
                       fontSize: 25.0,
                       fontFamily: 'Roboto',
-                      color: new Color(0xFFFFFFFF),
+                      color: Colors.white,
                     )
                 )
             )
           )
         ],
       ),
-      //color: trainColors['rt'],
+      color: colorAbrv[data['rt']]
   );
   }
 }

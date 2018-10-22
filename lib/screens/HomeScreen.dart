@@ -19,9 +19,8 @@ class _HomeScreenState extends State<HomeScreen>{
 
   int _currentIndex = 0;
   final List<Widget> _children = [
-        PlaceholderWidget(Colors.white),
         TrainsWidget(),
-        PlaceholderWidget(Colors.green)
+        PlaceholderWidget(Colors.white),
   ];
   
   @override
@@ -35,16 +34,12 @@ class _HomeScreenState extends State<HomeScreen>{
         onTap: onTabTapped,
         currentIndex: _currentIndex,
         items: [
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
-          ),
          new BottomNavigationBarItem(
-            icon: new Icon(Icons.mail),
+            icon: new Icon(Icons.train),
             title: new Text('Trains'),
           ),
           new BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.directions_bus),
             title: Text('Busses')
           ),
         ],

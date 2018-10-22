@@ -4,7 +4,6 @@ import 'arrivalCardWidget.dart';
 List<Widget> addArrivalTile(snapshot){
   List<Widget> arrivalTileList = new List();
   for(var i in snapshot.data.response.keys){
-    print("TEST!!" + snapshot.data.response[i].toString());
     arrivalTileList.add(ArrivalCard(snapshot.data.response[i]));
   }
   return arrivalTileList;
@@ -19,10 +18,8 @@ class ArrivalGridView extends StatelessWidget{
     return new GridView.count(
       primary: true,
       padding: const EdgeInsets.all(1.0),
-      crossAxisCount: 3,
-      childAspectRatio: 0.85,
-      mainAxisSpacing: 1.0,
-      crossAxisSpacing: 1.0,
+      crossAxisCount: 2,
+      childAspectRatio: 0.80,
       children: addArrivalTile(this.data),
     );
   }
