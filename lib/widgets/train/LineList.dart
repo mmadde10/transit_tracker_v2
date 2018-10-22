@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trasit_tracker/util/color.dart';
 import 'package:trasit_tracker/services/stations.cta.dart';
-import 'package:trasit_tracker/screens/widgets/StationWidget.dart';
+import 'package:trasit_tracker/screens/widgets/train/StationWidget.dart';
 
 class LineListView extends StatelessWidget{
   final String color;

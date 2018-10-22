@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:trasit_tracker/screens/widgets/StationSelectWidget.dart';
+import 'StationSelectWidget.dart';
 
-class LineGridView extends StatelessWidget{
-  @override
+class TrainsWidget extends StatelessWidget {
+ @override
  Widget build(BuildContext context) {
-   return GridView.count(
+   return Container(
+    child: new GridView.count(
       primary: true,
       padding: const EdgeInsets.all(1.0),
       crossAxisCount: 3,
@@ -21,8 +22,9 @@ class LineGridView extends StatelessWidget{
         LineGridViewCard("Purple", Color(0xFF522398),Color(0xFFFFFFFF)),
         LineGridViewCard("Yellow", Color(0xFFF9E300), Colors.black),
       ],
-  );
- }
+    ),
+   );
+  }
 }
 
 class LineGridViewCard extends StatelessWidget {

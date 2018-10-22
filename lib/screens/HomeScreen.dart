@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trasit_tracker/widgets/PlaceholderWidget.dart';
-import 'package:trasit_tracker/screens/widgets/BusWidget.dart';
-import 'package:trasit_tracker/screens/widgets/TrainsWidget.dart';
-import 'package:trasit_tracker/screens/widgets/HomeWidget.dart';
+import 'package:trasit_tracker/screens/widgets/train/TrainsWidget.dart';
 
 class HomeScreen extends StatefulWidget{
   final String title;

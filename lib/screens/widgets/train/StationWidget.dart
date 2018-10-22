@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trasit_tracker/util/color.dart';
-import 'package:trasit_tracker/widgets/Lists/ArrivalList.dart';
+import 'package:trasit_tracker/widgets/train/ArrivalList.dart';
 
 class StationWidget extends StatelessWidget{
   final dynamic mapID;

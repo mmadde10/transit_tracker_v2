@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trasit_tracker/widgets/Lists/LineList.dart';
+import 'package:trasit_tracker/widgets/train/LineList.dart';
 
 class StationSelectWidget extends StatelessWidget{
  final String lineColorName;
